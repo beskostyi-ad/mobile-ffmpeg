@@ -68,6 +68,16 @@
     });
 }
 
+- (NSString*)getAudioOutputFilePath {
+    NSString* docFolder = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    return [[docFolder stringByAppendingPathComponent: @"result."] stringByAppendingString: @"mp4"];
+}
+
+- (NSString*)getAudioSamplePath {
+    NSString* docFolder = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    return [docFolder stringByAppendingPathComponent: @"original.mp4"];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -86,6 +96,39 @@
     [[self commandText] endEditing:TRUE];
     
     NSString *ffmpegCommand = [NSString stringWithFormat:@"-hide_banner %@", [[self commandText] text]];
+    
+    NSLog(@"Current log level is %d.\n", [MobileFFmpegConfig getLogLevel]);
+
+    NSLog(@"Testing FFmpeg COMMAND synchronously.\n");
+    
+    NSLog(@"FFmpeg process started with arguments\n\'%@\'\n", ffmpegCommand);
+    
+    // EXECUTE
+    int result = [MobileFFmpeg execute:ffmpegCommand];
+    
+    NSLog(@"FFmpeg process exited with rc %d\n", result);
+
+    if (result != RETURN_CODE_SUCCESS) {
+        [Util alert:self withTitle:@"Error" message:@"Command failed. Please check output for the details." andButtonText:@"OK"];
+    }
+}
+
+- (IBAction)runFFmpegAudioAction:(id)sender {
+    [self hideTooltip];
+
+    [self clearOutput];
+    
+    [[self commandText] endEditing:TRUE];
+    
+    NSString *audioSampleFile = [self getAudioSamplePath];
+    NSString *audioOutputFile = [self getAudioOutputFilePath];
+//    NSString *ffmpegCommand = [NSString stringWithFormat:@"-hide_banner -y -i %@ -filter_complex \"rubberband=pitch=1.5\" %@", audioSampleFile, audioOutputFile];
+    
+//    NSString *ffmpegCommand = [NSString stringWithFormat:@"-hide_banner -y -i %@  -filter_complex \"sofalizer=sofa=temp/hrtf c_nh877.sofa:type=freq:radius=1\" %@", audioSampleFile, audioOutputFile];
+    
+    NSString *ffmpegCommand = [NSString stringWithFormat:@"-hide_banner -y -i %@ -af \"pan=mono|c0<c0-c1\" %@", audioSampleFile, audioOutputFile];
+    
+//    NSString *ffmpegCommand = [NSString stringWithFormat:@"-hide_banner -y -i %@ -af \"superequalizer=1b=10:2b=10:3b=1:4b=5:5b=7:6b=5:7b=2:8b=3:9b=4:10b=5:11b=6:12b=7:13b=8:14b=8:15b=9:16b=9:17b=10:18b=10[a];[a]loudnorm=I=-16:TP=-1.5:LRA=14\" -ar 48k %@", audioSampleFile, audioOutputFile];
     
     NSLog(@"Current log level is %d.\n", [MobileFFmpegConfig getLogLevel]);
 

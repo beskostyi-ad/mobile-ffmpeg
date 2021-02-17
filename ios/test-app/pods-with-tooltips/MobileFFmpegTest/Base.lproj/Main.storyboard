@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wr-qB-Pyg" userLabel="Run FFmpeg Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wr-qB-Pyg" userLabel="Run FFmpeg Button">
                                 <rect key="frame" x="142" y="186" width="130" height="32"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.95983767649706664" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -35,7 +35,7 @@
                                     <action selector="runFFmpegAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="cfm-2r-5CD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OP-Pr-kwN" userLabel="Run FFprobe Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OP-Pr-kwN" userLabel="Run FFprobe Button">
                                 <rect key="frame" x="142" y="248" width="130" height="32"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.96078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -81,16 +81,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCI-XN-3F2" userLabel="Run FFprobe Button">
+                                <rect key="frame" x="280" y="186" width="130" height="32"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="wz1-Oz-qJL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="RUN AUDIO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="runFFmpegAudioAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4i0-ga-g5D"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="OCI-XN-3F2" firstAttribute="leading" secondItem="3Wr-qB-Pyg" secondAttribute="trailing" constant="8" symbolic="YES" id="76D-nD-ecx"/>
                             <constraint firstItem="4qP-Cg-LeP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="7gl-9L-D3r"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="OCI-XN-3F2" secondAttribute="trailing" constant="4" id="91d-cL-bkJ"/>
                             <constraint firstItem="3Wr-qB-Pyg" firstAttribute="top" secondItem="WEh-8G-EBV" secondAttribute="bottom" constant="30" id="Bv6-sf-pUr"/>
                             <constraint firstItem="WEh-8G-EBV" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="E3u-aH-GtI"/>
                             <constraint firstItem="0OP-Pr-kwN" firstAttribute="top" secondItem="3Wr-qB-Pyg" secondAttribute="bottom" constant="30" id="GkN-Nr-WQa"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="gqc-19-yb3" secondAttribute="trailing" constant="30" id="Mys-Te-4uL"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="WEh-8G-EBV" secondAttribute="trailing" constant="20" id="PIj-KG-iAW"/>
                             <constraint firstItem="WEh-8G-EBV" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="PRt-sv-OK2"/>
+                            <constraint firstItem="OCI-XN-3F2" firstAttribute="top" secondItem="3Wr-qB-Pyg" secondAttribute="top" id="UpK-Fr-vkm"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="4qP-Cg-LeP" secondAttribute="trailing" id="VHT-1r-TBX"/>
                             <constraint firstItem="WEh-8G-EBV" firstAttribute="top" secondItem="4qP-Cg-LeP" secondAttribute="bottom" constant="30" id="Zvk-1n-ESj"/>
                             <constraint firstItem="gqc-19-yb3" firstAttribute="top" secondItem="0OP-Pr-kwN" secondAttribute="bottom" constant="30" id="cDP-cF-D1P"/>
@@ -100,7 +124,6 @@
                             <constraint firstItem="gqc-19-yb3" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="30" id="vS2-Q3-ZQt"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="gqc-19-yb3" secondAttribute="bottom" constant="40" id="z6D-kO-sGE"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="COMMAND" id="acW-dT-cKf">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
@@ -125,7 +148,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h8-5u-nyc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h8-5u-nyc">
                                 <rect key="frame" x="127" y="440.5" width="160" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -170,6 +193,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="0TE-EO-U6Y"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="s4J-D4-REU" firstAttribute="top" secondItem="4h8-5u-nyc" secondAttribute="bottom" constant="20" id="CQK-7e-Ked"/>
@@ -186,7 +210,6 @@
                             <constraint firstItem="s4J-D4-REU" firstAttribute="leading" secondItem="0TE-EO-U6Y" secondAttribute="leading" constant="20" id="vEC-lE-5Cn"/>
                             <constraint firstItem="QbR-eE-pgH" firstAttribute="top" secondItem="0TE-EO-U6Y" secondAttribute="top" id="yeg-sy-43l"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="0TE-EO-U6Y"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="VID.STAB" id="rXr-CL-fmJ">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
@@ -220,7 +243,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-fh-ESA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-fh-ESA">
                                 <rect key="frame" x="127" y="154" width="160" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -248,6 +271,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="TGd-1i-fC0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FZM-Vr-bIG" firstAttribute="top" secondItem="TGd-1i-fC0" secondAttribute="top" id="0XI-TW-GPp"/>
@@ -260,7 +284,6 @@
                             <constraint firstItem="FZM-Vr-bIG" firstAttribute="leading" secondItem="TGd-1i-fC0" secondAttribute="leading" id="nmK-Vp-Uah"/>
                             <constraint firstItem="TGd-1i-fC0" firstAttribute="trailing" secondItem="FZM-Vr-bIG" secondAttribute="trailing" id="wHm-KN-DvT"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="TGd-1i-fC0"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="SUBTITLE" id="8hM-gO-Rl0">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
@@ -293,7 +316,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7Q-Af-rbI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7Q-Af-rbI">
                                 <rect key="frame" x="167" y="274" width="80" height="32"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -328,6 +351,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5Kd-Bt-3GF" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="CyR-64-dil"/>
@@ -343,7 +367,6 @@
                             <constraint firstItem="z7Q-Af-rbI" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="sTb-cb-Z80"/>
                             <constraint firstItem="qjq-ds-G4r" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="xBN-XP-eBu"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="VIDEO" id="cPa-gy-q4n">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
@@ -392,7 +415,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73w-Ym-bzB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73w-Ym-bzB">
                                 <rect key="frame" x="147" y="196" width="120" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95983767649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -409,6 +432,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="4kW-Cd-RXm"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="73w-Ym-bzB" firstAttribute="centerX" secondItem="eB0-3e-noz" secondAttribute="centerX" id="9zP-2C-5gD"/>
@@ -425,7 +449,6 @@
                             <constraint firstItem="pPR-jx-Kgn" firstAttribute="leading" secondItem="4kW-Cd-RXm" secondAttribute="leading" id="xw9-Bs-Evc"/>
                             <constraint firstItem="4kW-Cd-RXm" firstAttribute="trailing" secondItem="pNU-kW-9m1" secondAttribute="trailing" constant="20" id="y35-ot-DZt"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="4kW-Cd-RXm"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="HTTPS" id="qWH-ke-gvA">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
@@ -483,7 +506,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bv-dS-fDm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bv-dS-fDm">
                                 <rect key="frame" x="167" y="234" width="80" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -525,6 +548,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="roa-fy-08b"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="roa-fy-08b" firstAttribute="trailing" secondItem="FNe-kj-LF2" secondAttribute="trailing" constant="20" id="3aS-1r-lJ3"/>
@@ -542,7 +566,6 @@
                             <constraint firstItem="d5w-BF-L7P" firstAttribute="centerX" secondItem="3bv-dS-fDm" secondAttribute="centerX" id="udh-Wq-9JM"/>
                             <constraint firstItem="iJH-qM-MdU" firstAttribute="trailing" secondItem="roa-fy-08b" secondAttribute="trailing" id="vZO-jj-5Db"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="roa-fy-08b"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="AUDIO" id="cSp-1H-Ql8">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
@@ -583,7 +606,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jh-ij-pAm" userLabel="Create Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jh-ij-pAm" userLabel="Create Button">
                                 <rect key="frame" x="167" y="154" width="80" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -604,6 +627,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="qRF-26-5Eg"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0mn-9V-HUc" firstAttribute="leading" secondItem="qRF-26-5Eg" secondAttribute="leading" id="9Sz-pz-IfS"/>
@@ -617,7 +641,6 @@
                             <constraint firstItem="qP7-h5-j9B" firstAttribute="top" secondItem="8Jh-ij-pAm" secondAttribute="bottom" constant="30" id="ecT-1U-wsO"/>
                             <constraint firstItem="8Jh-ij-pAm" firstAttribute="top" secondItem="0mn-9V-HUc" secondAttribute="bottom" constant="60" id="smL-6q-LXJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="qRF-26-5Eg"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="PIPE" id="hH3-vT-6nS">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
@@ -641,7 +664,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zei-SH-uuQ" userLabel="Cancel 1 Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zei-SH-uuQ" userLabel="Cancel 1 Button">
                                 <rect key="frame" x="50" y="206" width="74" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95983767649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -660,7 +683,7 @@
                                     <action selector="cancel1Button:" destination="EU8-jW-wLH" eventType="touchUpInside" id="dZm-W0-AFh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh6-aV-WhF" userLabel="Cancel 2 Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh6-aV-WhF" userLabel="Cancel 2 Button">
                                 <rect key="frame" x="130" y="206" width="74" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95983767649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -679,7 +702,7 @@
                                     <action selector="cancel2Button:" destination="EU8-jW-wLH" eventType="touchUpInside" id="QIj-5Z-ZCf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHU-D7-SBF" userLabel="Cancel 3 Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHU-D7-SBF" userLabel="Cancel 3 Button">
                                 <rect key="frame" x="210" y="206" width="74" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95983767649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -698,7 +721,7 @@
                                     <action selector="cancel3Button:" destination="EU8-jW-wLH" eventType="touchUpInside" id="vDd-e5-sbx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uav-6Y-n6A" userLabel="Encode 2 Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uav-6Y-n6A" userLabel="Encode 2 Button">
                                 <rect key="frame" x="171" y="134" width="72" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95983767649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -734,7 +757,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNS-rT-YhT" userLabel="Encode 3 Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNS-rT-YhT" userLabel="Encode 3 Button">
                                 <rect key="frame" x="271" y="134" width="72" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95983767649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -753,7 +776,7 @@
                                     <action selector="encode3Clicked:" destination="EU8-jW-wLH" eventType="touchUpInside" id="Q5w-Q8-OIL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oN3-PI-nDf" userLabel="Cancel All Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oN3-PI-nDf" userLabel="Cancel All Button">
                                 <rect key="frame" x="291" y="206" width="80" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95983767649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -772,7 +795,7 @@
                                     <action selector="cancelAllButton:" destination="EU8-jW-wLH" eventType="touchUpInside" id="hwq-gP-IaB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7B-ae-W9e" userLabel="Encode 1 Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7B-ae-W9e" userLabel="Encode 1 Button">
                                 <rect key="frame" x="71" y="134" width="72" height="32"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.95983767649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -792,6 +815,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="fN4-ji-Jgt"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HHU-D7-SBF" firstAttribute="top" secondItem="Uav-6Y-n6A" secondAttribute="bottom" constant="40" id="0SQ-to-TH6"/>
@@ -816,7 +840,6 @@
                             <constraint firstItem="zei-SH-uuQ" firstAttribute="centerX" secondItem="2wm-jf-qaV" secondAttribute="centerX" constant="-120" id="xAd-kE-CP4"/>
                             <constraint firstItem="oN3-PI-nDf" firstAttribute="top" secondItem="CNS-rT-YhT" secondAttribute="bottom" constant="40" id="y8N-gN-phY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fN4-ji-Jgt"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="CONCURRENT EXECUTION" id="NgY-1V-GPd">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
